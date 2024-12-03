@@ -6,7 +6,7 @@ const initialPostsData = {
   title: "",
   image: "",
   content: "",
-  tags: "",
+  // tags: "",
   published: false,
   categories: ""
 };
@@ -22,10 +22,13 @@ export default function Card() {
     const value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
 
-    const newFormData = {
+      const newFormData = {
       ...formData,
       [key]: value,
     };
+
+    console.log(newFormData)
+
     setFormData(newFormData);
   }
 
@@ -33,16 +36,20 @@ export default function Card() {
     e.preventDefault();
 
     const newTitle = formData.title.trim();
-    const newTags = formData.tags.trim();
+    // const newTags = formData.tags.trim();
 
-    if (newTitle === "" || newTags.length === 0) return;
+    console.log("BEFORE TRIM")
+
+    //if (newTitle === "" || newTags.length === 0) return;
+
+    console.log("AFTER TRIM")
 
     const addedPost = {
       id: Date.now(),
       title: newTitle,
       image: formData.image || "https://picsum.photos/200/300?grayscale",
       content: formData.content || "Contenuto non disponibile.",
-      tags: newTags,
+      // tags: newTags,
       published: formData.published,
       categories: formData.categories
     };
@@ -104,11 +111,12 @@ export default function Card() {
           <div>
             <label htmlFor="categories"></label>
             <select  id="published"
-              name="published"
+              name="categories"
               onChange={handleFormData}
               value={formData.categories}
               type="select"
               placeholder="Inserisci il contenuto"> 
+              <option value="" disabled>Seleziona una categoria</option>
               <option value='tech'>Tech</option>
               <option value='programmazione'>Programmazione</option>
               </select>
@@ -121,9 +129,8 @@ export default function Card() {
               id="published"
               name="published"
               onChange={handleFormData}
-              value={formData.published}
+              checked={formData.published}
               type="checkbox"
-              placeholder="Inserisci il contenuto"
             />
           </div>
 
@@ -145,11 +152,11 @@ export default function Card() {
                 alt={post.title || "Post"}
               />
               <h3>{post.title}</h3>
-              <h5
+              {/* <h5
                 style={{ color: post.tags.includes("HTML") ? "red" : "blue" }}
               >
                 Tag: {post.tags.join(", ")}
-              </h5>
+              </h5> */}
               <p>Contenuto: {post.content}</p>
               <h5>Categoria: {post.categories}</h5>
               <div>
