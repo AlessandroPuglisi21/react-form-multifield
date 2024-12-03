@@ -7,7 +7,7 @@ const initialPostsData = {
   image: "",
   content: "",
   tags: "",
-  published: true,
+  published: false,
 };
 
 export default function Card() {
@@ -86,7 +86,7 @@ export default function Card() {
             />
           </div>
 
-          {/* IMMAGINE*/}
+          {/* IMMAGINE
           <div>
             <label htmlFor="img"></label>
               <input
@@ -97,7 +97,21 @@ export default function Card() {
               type="text"
               placeholder="Inserisci il link"
             />
+          </div> */}
+
+          {/* PUBBLICARE */}
+          <div>
+            <label htmlFor="pubblicare">Spunta per Pubblicare</label>
+            <input
+              id="published"
+              name="published"
+              onChange={handleFormData}
+              value={formData.published}
+              type="checkbox"
+              placeholder="Inserisci il contenuto"
+            />
           </div>
+
           <input
             type="submit"
             value="Aggiungi"
