@@ -7,6 +7,7 @@ const posts = [
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
 		tags: ['html', 'css'],
 		published: true,
+		categories: 'Programmazione'
 	},
 	{
 		id: 2,
@@ -16,6 +17,7 @@ const posts = [
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
 		tags: ['js', 'css'],
 		published: true,
+		categories: 'Programmazione'
 	},
 	{
 		id: 3,
@@ -25,6 +27,7 @@ const posts = [
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
 		tags: ['js', 'php'],
 		published: true,
+		categories: 'Programmazione'
 	},
 	{
 		id: 4,
@@ -34,6 +37,7 @@ const posts = [
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
 		tags: ['html'],
 		published: false,
+		categories: 'Programmazione'
 	},
 ]
 

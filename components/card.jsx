@@ -8,6 +8,7 @@ const initialPostsData = {
   content: "",
   tags: "",
   published: false,
+  categories: ""
 };
 
 export default function Card() {
@@ -32,7 +33,7 @@ export default function Card() {
     e.preventDefault();
 
     const newTitle = formData.title.trim();
-    const newTags = formData.tags.trim().toLocaleUpperCase().split("-");
+    const newTags = formData.tags.trim();
 
     if (newTitle === "" || newTags.length === 0) return;
 
@@ -43,6 +44,7 @@ export default function Card() {
       content: formData.content || "Contenuto non disponibile.",
       tags: newTags,
       published: formData.published,
+      categories: formData.categories
     };
 
     setPosts([...posts, addedPost]);
@@ -58,7 +60,7 @@ export default function Card() {
     <main className={style.background}>
       {/* FORM */}
       <div className={style.formContainer}>
-        <form onSubmit={addPost}>
+        <form onSubmit={addPost} className={style.formContainer}>
 
           {/* TITOLO */}
           <div>
@@ -98,6 +100,19 @@ export default function Card() {
               placeholder="Inserisci il link"
             />
           </div> */}
+          {/* CATEGORIA */}
+          <div>
+            <label htmlFor="categories"></label>
+            <select  id="published"
+              name="published"
+              onChange={handleFormData}
+              value={formData.categories}
+              type="select"
+              placeholder="Inserisci il contenuto"> 
+              <option value='tech'>Tech</option>
+              <option value='programmazione'>Programmazione</option>
+              </select>
+          </div>
 
           {/* PUBBLICARE */}
           <div>
@@ -136,6 +151,7 @@ export default function Card() {
                 Tag: {post.tags.join(", ")}
               </h5>
               <p>Contenuto: {post.content}</p>
+              <h5>Categoria: {post.categories}</h5>
               <div>
                 <button
                   className={style.submitButton}
