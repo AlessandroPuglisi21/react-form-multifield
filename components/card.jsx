@@ -3,10 +3,10 @@ import style from "../components/card.module.css";
 import initialPosts from "../components/posts";
 
 const initialPostsData = {
-  title: '',
-  image: '',
-  content: '',
-  tags: '',
+  title: "",
+  image: "",
+  content: "",
+  tags: "",
   published: true,
 };
 
@@ -18,7 +18,8 @@ export default function Card() {
 
   function handleFormData(e) {
     const key = e.target.name;
-    const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
 
     const newFormData = {
       ...formData,
@@ -33,7 +34,7 @@ export default function Card() {
     const newTitle = formData.title.trim();
     const newTags = formData.tags.trim().toLocaleUpperCase().split("-");
 
-    if (newTitle === '' || newTags.length === 0) return;
+    if (newTitle === "" || newTags.length === 0) return;
 
     const addedPost = {
       id: Date.now(),
@@ -58,9 +59,10 @@ export default function Card() {
       {/* FORM */}
       <div className={style.formContainer}>
         <form onSubmit={addPost}>
+
           {/* TITOLO */}
           <div>
-            <label htmlFor="title">Titolo</label>
+            <label htmlFor="title"></label>
             <input
               id="title"
               name="title"
@@ -70,9 +72,37 @@ export default function Card() {
               placeholder="Titolo del post"
             />
           </div>
+
           {/* CONTENUTO */}
-      
-          <input type="submit" value="Aggiungi" className={style.submitButton} />
+          <div>
+            <label htmlFor="contenuto"></label>
+            <input
+              id="content"
+              name="content"
+              onChange={handleFormData}
+              value={formData.content}
+              type="text"
+              placeholder="Inserisci il contenuto"
+            />
+          </div>
+
+          {/* IMMAGINE*/}
+          <div>
+            <label htmlFor="img"></label>
+              <input
+              id="img"
+              name="img"
+              onChange={handleFormData}
+              value={formData.image}
+              type="text"
+              placeholder="Inserisci il link"
+            />
+          </div>
+          <input
+            type="submit"
+            value="Aggiungi"
+            className={style.submitButton}
+          />
         </form>
       </div>
 
@@ -81,9 +111,14 @@ export default function Card() {
         {publishedPosts.length > 0 ? (
           publishedPosts.map((post) => (
             <div key={post.id} className={style.cardbody}>
-              <img src={post.image || "/path-to-default-image.jpg"} alt={post.title || "Post"} />
+              <img
+                src={post.image || "/path-to-default-image.jpg"}
+                alt={post.title || "Post"}
+              />
               <h3>{post.title}</h3>
-              <h5 style={{ color: post.tags.includes("HTML") ? "red" : "blue" }}>
+              <h5
+                style={{ color: post.tags.includes("HTML") ? "red" : "blue" }}
+              >
                 Tag: {post.tags.join(", ")}
               </h5>
               <p>Contenuto: {post.content}</p>
