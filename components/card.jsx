@@ -95,18 +95,18 @@ export default function Card() {
             />
           </div>
 
-          {/* IMMAGINE
+          {/* IMMAGINE */}
           <div>
             <label htmlFor="img"></label>
               <input
-              id="img"
-              name="img"
+              id="image"
+              name="image"
               onChange={handleFormData}
               value={formData.image}
               type="text"
               placeholder="Inserisci il link"
             />
-          </div> */}
+          </div>
           {/* CATEGORIA */}
           <div>
             <label htmlFor="categories"></label>
