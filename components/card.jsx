@@ -47,7 +47,7 @@ export default function Card() {
     const addedPost = {
       id: Date.now(),
       title: newTitle,
-      image: formData.image || "https://picsum.photos/200/300?grayscale",
+      image: formData.image || "https://img.freepik.com/vettori-premium/vettore-dell-icona-dell-immagine-predefinita-pagina-immagine-mancante-per-il-design-del-sito-web-o-l-app-mobile-nessuna-foto-disponibile_87543-7509.jpg",
       content: formData.content || "Contenuto non disponibile.",
       // tags: newTags,
       published: formData.published,
